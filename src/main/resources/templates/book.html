@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Details</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<div class="book-container">
+    <div class="book">
+        <div class="cover">Book</div>
+        <div class="page-blank"></div>
+        <div class="page-content">
+            <h1>Book Details</h1>
+            <p>Title: <span th:text="${book.title}">Example Title</span></p>
+            <p>Author: <span th:text="${book.author}">Example Author</span></p>
+            <p>Year: <span th:text="${book.year}">2024</span></p>
+        </div>
+    </div>
+    <div class="hover-instruction">Pasa el mouse para más información</div>
+</div>
+</body>
+</html>

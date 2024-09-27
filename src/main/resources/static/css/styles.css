@@ -1,0 +1,105 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #F1F2EE;
+}
+
+.book-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    perspective: 2000px;
+}
+
+.book {
+    width: 300px;
+    height: 400px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    margin-bottom: 20px;
+}
+
+.cover, .page-blank, .page-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform-origin: left;
+    transition: transform 0.8s ease;
+    backface-visibility: hidden;
+    border-radius: 0 10px 10px 0;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+.cover {
+    background-color: #00a8e8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    z-index: 3;
+    transform: rotateY(0deg);
+}
+
+.page-blank {
+    background-color: #f8f8f8;
+    z-index: 2;
+    transform: rotateY(0deg);
+}
+
+.page-content {
+    background-color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 1;
+    transform: rotateY(0deg);
+    overflow-y: auto;
+}
+
+.book:hover .cover {
+    transform: rotateY(-180deg);
+}
+
+.book:hover .page-blank {
+    transform: rotateY(-175deg);
+    transition-delay: 0.2s;
+}
+
+.book:hover .page-content {
+    transform: rotateY(-5deg);
+    transition-delay: 0.4s;
+}
+
+h1 {
+    color: #00a8e8;
+    margin-bottom: 20px;
+}
+
+p {
+    margin: 10px 0;
+    font-size: 20px
+}
+
+span {
+    font-weight: bold;
+    color: #333;
+}
+
+.hover-instruction {
+    font-size: 15px;
+    color: #666;
+    text-align: center;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.book:hover + .hover-instruction {
+    opacity: 0;
+}
